@@ -11,7 +11,7 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3
 
     - name: Clean IIS folder
       run: Remove-Item -Recurse -Force "C:\inetpub\mywebapp\*" -ErrorAction SilentlyContinue
@@ -32,3 +32,6 @@ jobs:
 
     - name: Restart IIS
       run: iisreset
+
+    - name: Cleanup Docker image (optional)
+      run: docker rmi mywebapi-build || echo "Image already removed"
