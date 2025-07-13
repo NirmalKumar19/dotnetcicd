@@ -1,0 +1,23 @@
+name: CI/CD to Local IIS via Docker
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Build Docker image and extract publish folder
+      run: |
+        docker build -f Controllers/Dockerfile -t mywebapi-build .
+        docker create --name extract-container mywebapi-build
+        docker cp extract-container:/out/. "C:\inetpub\mywebapp"
+        docker rm extract-container
+
+    - name: Restart IIS
+      run: iisreset
