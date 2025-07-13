@@ -12,12 +12,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Build Docker image and extract publish folder
-      run: |
-        docker build -f Controllers/Dockerfile -t mywebapi-build .
-        docker create --name extract-container mywebapi-build
-        docker cp extract-container:/out/. "C:\inetpub\mywebapp"
-        docker rm extract-container
+  - name: Build Docker image and extract publish folder
+  run: |
+    docker build -t mywebapi-build .
+    docker create --name extract-container mywebapi-build
+    docker cp extract-container:/out/. "C:\inetpub\mywebapp"
+    docker rm extract-container
 
-    - name: Restart IIS
-      run: iisreset
+- name: Restart IIS
+  run: iisreset
+
