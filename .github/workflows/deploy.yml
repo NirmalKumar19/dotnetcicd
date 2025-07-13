@@ -1,4 +1,4 @@
-name: Build and Deploy
+name: Build and Deploy to IIS
 
 on:
   push:
@@ -13,9 +13,12 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v2
 
+    - name: Clean IIS folder
+      run: Remove-Item -Recurse -Force "C:\inetpub\mywebapp\*" -ErrorAction SilentlyContinue
+
     - name: Build Docker image and extract publish folder
       run: |
-        docker build -t mywebapi-build .
+        docker build --no-cache -t mywebapi-build .
         docker create --name extract-container mywebapi-build
         docker cp extract-container:/out/. "C:\inetpub\mywebapp"
         docker rm extract-container
