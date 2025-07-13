@@ -8,7 +8,7 @@ namespace dot_net_ci_cd.Controllers
     {
         private static readonly string[] Summaries = new[]
         {
-            "h", "n", "Chully", "Col", "nb", "k", "j", ",", "i", "o"
+            "h", "n", "Chully", "Col", "nb", "kk", "j", ",", "i", "o"
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
