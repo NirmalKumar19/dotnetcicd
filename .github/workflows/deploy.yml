@@ -16,6 +16,12 @@ jobs:
     - name: Clean IIS folder
       run: Remove-Item -Recurse -Force "C:\inetpub\mywebapp\*" -ErrorAction SilentlyContinue
 
+    - name: Show working directory and list files
+      run: |
+        echo "Current directory:"
+        pwd
+        ls -R
+
     - name: Build Docker image and extract publish folder
       run: |
         cd "${{ github.workspace }}"
