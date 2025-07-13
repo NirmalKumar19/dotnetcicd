@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("dot net ci cd")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+846c145d1045c486e3f0e42f9494f0211141d1c1")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d05ad9eedf87fdf8ba666aeb9bca7ff41f5e1860")]
 [assembly: System.Reflection.AssemblyProductAttribute("dot net ci cd")]
 [assembly: System.Reflection.AssemblyTitleAttribute("dot net ci cd")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
